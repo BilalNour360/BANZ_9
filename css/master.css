@@ -1,0 +1,511 @@
+:root {
+  --blue-color: #0075ff;
+  --blue-alt-color: #0d69d5;
+  --orange-color: #f59e0b;
+  --orange-lite: rgba(251, 178, 68, 0.2);
+  --main-transition: 0.3s;
+  --main-padding: 100px;
+  --background-color: #f8f9fa;
+  --paragraph-color: #545454;
+  scroll-behavior: smooth;
+}
+/* Start global rules */
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+*::selection {
+  background-color: var(--orange-color);
+  color: white;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+}
+*:focus {
+  outline: none;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-track {
+  background-color: white;
+  box-shadow: 5px 0px 10px 0px rgb(0 0 0 / 20%) inset;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--blue-color);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--blue-alt-color);
+}
+/* End global rules */
+/* Start component */
+.component span{
+  display: block;
+  width: fit-content;
+  background-color: var(--orange-lite);
+  color: var(--orange-color);
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+.component h1 {
+  color: var(--blue-color);
+  margin-top: 10px;
+}
+.button button {
+  background-color: var(--blue-alt-color);
+  color: white;
+}
+.button button:hover {
+  background-color: white;
+  color: var(--blue-alt-color);
+}
+.button button {
+  border: 1px solid var(--blue-alt-color);
+  border-radius: 50px;
+  padding: 15px 30px;
+  font-size: 18px;
+  margin-right: 20px;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+@media (max-width: 767px) {
+  .button button {
+    font-size: inherit
+  }
+}
+/* End component */
+/* Start header */
+header {
+  position: relative;
+}
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header h1 {
+  height: 70px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+header .menu {
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+header .menu .toggle-menu {
+  height: 70px;
+  display: grid;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  header .menu .toggle-menu {
+    display: none;
+  }
+}
+header .menu .toggle-menu span {
+  display: block;
+  height: 3px;
+  width: 29px;
+  background-color: var(--blue-alt-color);
+  margin-bottom: 7px;
+  transition: var(--main-transition);
+}
+header .menu .toggle-menu:hover span:first-child {
+  transform-origin: left;
+  transform: rotate(45deg);
+}
+header .menu .toggle-menu:hover span:nth-child(2) {
+  opacity: 0;
+}
+header .menu .toggle-menu:hover span:last-child {
+  transform-origin: left;
+  transform: rotate(-45deg);
+}
+header .menu ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+header .menu ul li a {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  padding: 20px;
+  color: var(--blue-alt-color);
+  position: relative;
+  transition: var(--main-transition);
+  cursor: pointer;
+}
+header .menu ul li a:hover {
+  background-color: #f5f5f5;
+}
+@media (min-width: 768px) {
+  header .menu ul li a::before {
+    content: "";
+    position: absolute;
+    background-color: var(--blue-color);
+    width: 0;
+    height: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    transition: var(--main-transition);
+  }
+  header .menu ul li a:hover::before {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  header .menu ul {
+    display: none;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    border-top: 1px solid #ccc;
+    transition: var(--main-transition);
+  }
+  header .menu:hover ul {
+    display: grid;
+    top: 70px;
+  }
+  header .menu ul li a {
+    border-bottom: 1px solid #ccc;
+  }
+}
+/* End header */
+/* Start landing */
+.landing .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--main-padding) auto;
+}
+@media (max-width: 991px) {
+  .landing .container {
+    flex-direction: column;
+  }
+}
+.landing .text p {
+  color: var(--paragraph-color);
+  line-height: 1.6;
+  margin-bottom: 50px;
+}
+.landing .text .links {
+  margin-bottom: 20px;
+}
+.landing .text a button {
+  border: 1px solid var(--blue-alt-color);
+  border-radius: 50px;
+  padding: 15px 30px;
+  font-size: 18px;
+  transition: var(--main-transition);
+}
+@media (max-width: 767px) {
+  .landing .text a button {
+    font-size: inherit
+  }
+}
+.landing .text a:last-of-type button {
+  background-color: white;
+  color: var(--blue-alt-color);
+}
+.landing .text a:last-of-type button:hover {
+  background-color: var(--blue-alt-color);
+  color: white;
+}
+.landing img {
+  width: 400px;
+  max-width: 100%;
+}
+/* End landing */
+/* Start feature */
+.feature {
+  padding: var(--main-padding) 0;
+  background-color: var(--background-color);
+}
+.feature .container {
+  text-align: center;
+}
+.feature .component span {
+  margin: auto;
+}
+.feature .text p {
+  width: 500px;
+  max-width: 100%;
+  margin: 0 auto 50px;
+  line-height: 1.6;
+  color: var(--paragraph-color);
+}
+.feature .boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+.feature .boxes .box {
+  padding: 0 30px;
+  margin-bottom: 20px;
+}
+.feature .boxes .box .icon {
+  position: relative;
+  height: 100px;
+}
+.feature .boxes .box .icon span {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(245, 159, 11, 0.5);
+  border-radius: 50%;
+  position: absolute;
+}
+.feature .boxes .box .icon span::before {
+  font-family: var(--fa-style-family-classic);
+  font-weight: 900;
+  position: absolute;
+  left: -10px;
+  bottom: -10px;
+  font-size: 20px;
+}
+.feature .boxes .box:nth-of-type(1) .icon span::before {
+  content: 
+}
+.feature .boxes .box:nth-of-type(2) .icon span::before {
+  content: 
+}
+.feature .boxes .box:nth-of-type(3) .icon span::before {
+  content: 
+}
+.feature .boxes .box h3 {
+  margin: 0 0 10px;
+}
+.feature .boxes .box p {
+  margin: 0 0 20px;
+  color: var(--paragraph-color);
+  line-height: 1.6;
+}
+/* End feature */
+/* Start about */
+.about {
+  padding: var(--main-padding) 0;
+}
+.about .container {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+}
+@media (max-width: 991px) {
+  .about .container {
+    flex-direction: column;
+  }
+}
+.about img {
+  width: 500px;
+  max-width: 100%
+}
+.about .text p,
+.about .text .behind span {
+  line-height: 1.6;
+  color: var(--paragraph-color);
+}
+.about .behind {
+  margin-bottom: 50px;
+}
+.about .text .behind span {
+  display: block;
+  padding-left: 30px;
+  position: relative;
+}
+.about .text .behind span::before {
+  font-family: var(--fa-style-family-classic);
+  font-weight: 900;
+  content: "\f00c";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--paragraph-color);
+}
+/* End about */
+/* Start services */
+.services {
+  padding: var(--main-padding) 0;
+  background-color: var(--background-color);
+}
+.services .component {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.services .component span {
+  margin: auto;
+}
+.services .boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+.services .box {
+  display: flex;
+  gap: 20px;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  transition: var(--main-transition);
+}
+.services .box:hover {
+  border-color: var(--orange-color);
+}
+.services .box .icon {
+
+}
+.services .box .text {
+  
+}
+.services .box .text h3 {
+
+}
+.services .box .text p {
+  color: var(--paragraph-color);
+  line-height: 1.6;
+}
+/* End services */
+/* Start testimonials */
+.testimonials {
+  padding: var(--main-padding) 0;
+}
+.testimonials {
+  padding: var(--main-padding) 0;
+}
+.testimonials .component {
+  text-align: center;
+}
+.testimonials .component span {
+  margin: auto;
+}
+.testimonials .component p {
+  width: 700px;
+  max-width: 100%;
+  margin: 0 auto 50px;
+  color: var(--paragraph-color);
+}
+.testimonials .boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+.testimonials .box {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  transition: var(--main-transition);
+}
+.testimonials .box:hover {
+  border-color: var(--blue-color);
+}
+.testimonials .box q {
+  display: block;
+  margin: 20px 0;
+  color: var(--paragraph-color);
+}
+.testimonials .box img {
+  width: 50px;
+  border-radius: 50%;
+}
+.testimonials .box .info {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.testimonials .box .info h4 {
+  margin: 0;
+}
+/* End testimonials */
+/* Start footer */
+footer {
+  padding: var(--main-padding) 0;
+  background-color: var(--background-color);
+  position: relative;
+}
+footer .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+footer div:first-of-type p {
+  width: 400px;
+  max-width: 100%;
+  color: var(--paragraph-color);
+}
+footer a {
+  display: block;
+  color: var(--paragraph-color);
+  transition: var(--main-transition);
+  width: fit-content;
+}
+footer a:hover {
+  color: black;
+}
+footer .foot {
+  text-align: center;
+  margin: 50px 0 0;
+}
+
+footer a.top {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  background-color: var(--blue-color);
+  color: white;
+  border-radius: 50%;
+  padding: 10px;
+}
+footer a.top::before {
+  display: block;
+  font-family: var(--fa-style-family-classic);
+  font-weight: 900;
+  content: "\f102";
+}
+/* End footer */
